@@ -2,7 +2,17 @@ import java.util.Scanner;
 
 public class Sum {
     public static void main(String[] args) {
-        sum();
+//        int ans = sum();
+//        System.out.println(ans);
+
+        int ans = sum3(20, 30);
+        System.out.println(ans);
+    }
+
+    // pass the value of numbers when you are calling the method in main()
+    static int sum3(int a,int b){
+        int sum = a + b;
+        return sum;
     }
 
     static void sum(){
@@ -16,7 +26,7 @@ public class Sum {
     }
 
     /*
-        access modifier (we'll look in OOP) return_type () {
+        access modifier (we'll look in OOP) return_type name (arguments) {
         //body
         return statement;
         }
