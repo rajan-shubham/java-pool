@@ -26,6 +26,7 @@ public class Swap {
         int temp = b;
         b = a;
         a = temp;
+        // this change will only be valid in this function scope only.
     }
 }
 // for primitive datatypes it's olny going to do is pass by value, & for object & refrences (for complex data types)
