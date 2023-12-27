@@ -15,6 +15,7 @@ public class Main {
         // Array : it is a collection of same datatype element
         // syntax
         // datatype[] variable_name = new datatype[size];
+        // new keyword is used to create an object
         int[] rnos =  new int[5];
         // or directly
         int[] rnos2 = {23, 12, 45, 32, 15}; // all datatype should be same
@@ -29,5 +30,10 @@ public class Main {
 
         String[] arr = new String[4];
         System.out.println(arr[0]);
+
+        //1-> array object are in heap
+        //2-> heap objects are not continuous
+        //3-> dynamic memory allocation
+        // Hence array objects in java may not be continuous -> depends on JVM
     }
 }
