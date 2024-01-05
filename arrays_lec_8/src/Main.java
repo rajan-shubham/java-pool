@@ -43,6 +43,10 @@ public class Main {
         //primitives are stored in stack memory but all the other objects like String type,Array type,your own type,
         //   Hashmap all the other thing like the classes we are making are stored in HEAP Memory.
 
-        String[] arr = new String[5]; // Finding internal working of object arrays not primitives array
+        String[] arr = new String[5]; // Finding internal working of object arrays not primitives
+
+//        for(String element : arr){
+//            System.out.println(element);
+//        }
     }
 }
