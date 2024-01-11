@@ -20,7 +20,7 @@ class IndexiToTarget {
     }
 }
 
-/* The true solution is this 
+/* The true solution is this
 class Solution {
     public int[] createTargetArray(int[] nums, int[] index) {
         List<Integer> targetList = new ArrayList<>();
