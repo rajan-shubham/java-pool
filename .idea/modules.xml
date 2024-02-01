@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/arrays_lec_8/arrays_lec_8.iml" filepath="$PROJECT_DIR$/arrays_lec_8/arrays_lec_8.iml" />
+      <module fileurl="file://$PROJECT_DIR$/basics/basics.iml" filepath="$PROJECT_DIR$/basics/basics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/condition_loops/condition_loops.iml" filepath="$PROJECT_DIR$/condition_loops/condition_loops.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/java-pool.iml" filepath="$PROJECT_DIR$/.idea/java-pool.iml" />
+      <module fileurl="file://$PROJECT_DIR$/method/method.iml" filepath="$PROJECT_DIR$/method/method.iml" />
+    </modules>
+  </component>
+</project>
