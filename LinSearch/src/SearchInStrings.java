@@ -1,8 +1,12 @@
+import java.util.Arrays;
+
 public class SearchInStrings {
     public static void main(String[] args) {
         String name = "shubham";
         char target = 'u';
-        System.out.println(search(name, target));
+//        System.out.println(search(name, target));
+
+        System.out.println(Arrays.toString(name.toCharArray()));
     }
 
     static boolean search2(String str, char target){
