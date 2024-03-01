@@ -13,5 +13,7 @@ public class Comparision {
 
 //        System.out.println(name1 == name2);
         System.out.println(name1.equals(name2));
+
+        System.out.println(name1.charAt(1));
     }
 }
