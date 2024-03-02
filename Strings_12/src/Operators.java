@@ -15,5 +15,7 @@ public class Operators {
 
         String ans = new Integer(56) + "" + new ArrayList<>();
         System.out.println(ans);
+
+        System.out.println("a" + "bc");
     }
 }
