@@ -1,6 +1,12 @@
 public class ArmStrongNum {
     public static void main(String[] args) {
-        System.out.println(isArmStrong(153));
+//        System.out.println(isArmStrong(153));
+        System.out.println("Armstrong num between [0, 1000] are :");
+        for (int i = 0; i < 1000; i++) {
+            if (isArmStrong(i)){
+                System.out.print(i + " ");
+            }
+        }
     }
 
     static boolean isArmStrong(int num){
