@@ -52,6 +52,7 @@ public class StudentClass {
         Student two = one;
         one.name = "Something";
         System.out.println(two.name);
+        // change in object of Object's instance variable is seen by all reference variable i.e. pointing to same Object
 
         Student student1 = new Student(); // Student class here instantiated
         // LHS: happens(Stack memory allocated) at compile time, RHS: happens(Heap memory allocated) at runtime (DMA)
@@ -88,6 +89,7 @@ class Student {
 
     Student () {
         // this is how you call a constructor from another constructor
+        // at the time of creation when you call like this (Student random2 = new Student();) then 'this' is replaced with internally
         // internally: new Student (13, "default person", 100.0f);
         this (13, "default person", 100.0f);
     }
