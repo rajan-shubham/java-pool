@@ -13,8 +13,8 @@ public class Main {
         // Weired example
         // box5: this is of reference type of Box, and it is referencing to an object of type BoxWeight
         // it is reference type (super class) who determine what members can be accessed not the sub class
-        Box box5 = new BoxWeight(2, 3, 4, 8);
-        System.out.println(box5.w);
+//        Box box5 = new BoxWeight(2, 3, 4, 8);
+//        System.out.println(box5.w);
 
         // there are many variables in both parent and child classes
         // you are given access to variables that are in the ref type i.e. BoxWeight
@@ -25,5 +25,8 @@ public class Main {
 //        BoxWeight box6 = new Box(2,3,4);
         //        System.out.println(box6);
 
+
+//        BoxPrice box = new BoxPrice();
+        BoxPrice box = new BoxPrice(5, 8, 200);
     }
 }
