@@ -1,10 +1,18 @@
 package properties.inheritance;
 
 public class Box {
-    double l;
+    private double l; // data hiding
     double h;
     double w;
 //    double weight;
+
+    static void greeting(){
+        System.out.println("Hey I am in Box class. Greetings!");
+    }
+
+    public double getL() {
+        return l;
+    }
 
     Box () {
         this.h = -1;

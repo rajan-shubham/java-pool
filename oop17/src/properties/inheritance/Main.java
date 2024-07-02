@@ -2,7 +2,8 @@ package properties.inheritance;
 
 public class Main {
     public static void main(String[] args) {
-//        Box box1 = new Box(4.5, 5.5, 6.5);
+        Box box1 = new Box(4.5, 5.5, 6.5);
+        System.out.println(box1.getL());
 //        Box box2 = new Box(box1);
 //        System.out.println(box1.l + " " + box1.w + " " + box1.h);
 
@@ -27,6 +28,11 @@ public class Main {
 
 
 //        BoxPrice box = new BoxPrice();
-        BoxPrice box = new BoxPrice(5, 8, 200);
+//        BoxPrice box = new BoxPrice(5, 8, 200);
+
+//        Box.greeting();
+
+        Box box = new BoxWeight();
+        box.greeting(); // you can inherit, but you can't override
     }
 }
