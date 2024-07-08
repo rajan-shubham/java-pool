@@ -19,10 +19,19 @@ public class LambdaFunctions {
         Operation sum = (a, b) -> a + b;
         Operation prod = (a, b) -> a * b;
         Operation sub = (a, b) -> a - b;
+
+        LambdaFunctions myCalculator = new LambdaFunctions();
+        System.out.println(myCalculator.operate(5, 3, sum));
+        System.out.println(myCalculator.operate(5, 3, prod));
+        System.out.println(myCalculator.operate(5, 3, sub));
     }
 
     int sum(int a, int b){
         return a + b;
+    }
+
+    private int operate(int a, int b, Operation op){
+        return op.operation(a, b);
     }
 }
 
