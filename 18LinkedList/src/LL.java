@@ -164,17 +164,62 @@ public class LL {
         tail.next = null;
     }
 
-    public static void main(String[] args) {
-        LL list = new LL();
-        list.insertLast(1);
-        list.insertLast(1);
-        list.insertLast(2);
-        list.insertLast(3);
-        list.insertLast(3);
-        list.insertLast(3);
+    // merge two sorted list
+    public static LL merge(LL first, LL second){
+        Node f = first.head;
+        Node s = second.head;
 
-        list.display();
-        list.duplicates();
-        list.display();
+        LL ans = new LL();
+
+        while (f != null && s != null){
+            if(f.value < s.value){
+                ans.insertLast(f.value);
+                f = f.next;
+            }else{
+                ans.insertLast(s.value);
+                s = s.next;
+            }
+        }
+
+        while (f != null){
+            ans.insertLast(f.value);
+            f = f.next;
+        }
+
+        while (s != null){
+            ans.insertLast(s.value);
+            s = s.next;
+        }
+
+        return ans;
+    }
+
+    public static void main(String[] args) {
+//        LL list = new LL();
+//        list.insertLast(1);
+//        list.insertLast(1);
+//        list.insertLast(2);
+//        list.insertLast(3);
+//        list.insertLast(3);
+//        list.insertLast(3);
+//
+//        list.display();
+//        list.duplicates();
+//        list.display();
+
+        LL first = new LL();
+        LL second = new LL();
+
+        first.insertLast(1);
+        first.insertLast(3);
+        first.insertLast(5);
+
+        second.insertLast(1);
+        second.insertLast(2);
+        second.insertLast(9);
+        second.insertLast(14);
+
+        LL ans = merge(first,second);
+        ans.display();
     }
 }
