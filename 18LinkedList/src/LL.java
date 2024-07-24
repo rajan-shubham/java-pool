@@ -164,6 +164,7 @@ public class LL {
         tail.next = null;
     }
 
+    // https://leetcode.com/problems/merge-two-sorted-lists/submissions/
     // merge two sorted list
     public static LL merge(LL first, LL second){
         Node f = first.head;
