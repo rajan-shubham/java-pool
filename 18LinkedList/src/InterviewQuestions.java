@@ -37,6 +37,41 @@ public class InterviewQuestions {
         return 0;
     }
 
+    // https://leetcode.com/problems/linked-list-cycle-ii/
+    public ListNode detectCycle(ListNode head) {
+        int length = 0;
+
+        ListNode fast = head;
+        ListNode slow = head;
+
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if (fast == slow) {
+                length = lengthCycle(slow);
+                break;
+            }
+        }
+
+        if (length == 0) return null;
+
+        // find the start node
+        ListNode f = head;
+        ListNode s = head;
+
+        while (length != 0){
+            s = s.next;
+            length --;
+        }
+
+        // keep moving forward and they both meet at cycle start
+        while (s != f){
+            s = s.next;
+            f = f.next;
+        }
+        return s;
+    }
+
     class ListNode {
         int val;
         ListNode next;
