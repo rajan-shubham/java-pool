@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class InterviewQuestions {
     // https://leetcode.com/problems/linked-list-cycle
     // Amazon and Microsoft
@@ -71,6 +73,31 @@ public class InterviewQuestions {
         }
         return s;
     }
+    /* Alternate solution (0 ms)
+    public class Solution {
+    public ListNode detectCycle(ListNode head) {
+        ListNode slow=head;
+        ListNode fast=head;
+
+        while(fast!=null &&fast.next!=null)
+        {
+            slow=slow.next;
+            fast=fast.next.next;
+            if(slow==fast)
+            {
+                slow=head;
+                while(slow!=fast)
+                {
+                    slow=slow.next;
+                    fast=fast.next;
+                }
+                return slow;
+            }
+        }
+        return null;
+    }
+}
+     */
 
     // https://leetcode.com/problems/happy-number/
     public boolean isHappy(int n){
@@ -97,6 +124,18 @@ public class InterviewQuestions {
             number /= 10;
         }
         return ans;
+    }
+
+    // https://leetcode.com/problems/middle-of-the-linked-list/
+    public ListNode middleNode(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while (fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
     }
 
     class ListNode {
