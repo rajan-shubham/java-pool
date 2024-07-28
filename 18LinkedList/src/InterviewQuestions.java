@@ -61,13 +61,13 @@ public class InterviewQuestions {
         ListNode f = head;
         ListNode s = head;
 
-        while (length != 0){
+        while (length != 0) {
             s = s.next;
-            length --;
+            length--;
         }
 
         // keep moving forward and they both meet at cycle start
-        while (s != f){
+        while (s != f) {
             s = s.next;
             f = f.next;
         }
@@ -100,7 +100,7 @@ public class InterviewQuestions {
      */
 
     // https://leetcode.com/problems/happy-number/
-    public boolean isHappy(int n){
+    public boolean isHappy(int n) {
         int slow = n;
         int fast = n;
 
@@ -109,16 +109,16 @@ public class InterviewQuestions {
             fast = findSquare(findSquare(fast));
         } while (slow != fast);
 
-        if (slow == 1){
+        if (slow == 1) {
             return true;
         }
 
         return false;
     }
 
-    private int findSquare(int number){
+    private int findSquare(int number) {
         int ans = 0;
-        while (number != 0){
+        while (number != 0) {
             int rem = number % 10;
             ans += rem * rem;
             number /= 10;
@@ -131,13 +131,13 @@ public class InterviewQuestions {
         ListNode slow = head;
         ListNode fast = head;
 
-        while (fast != null && fast.next != null){
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
         return slow;
     }
-
+}
     class ListNode {
         int val;
         ListNode next;
@@ -150,4 +150,3 @@ public class InterviewQuestions {
             next = null;
         }
     }
-}
