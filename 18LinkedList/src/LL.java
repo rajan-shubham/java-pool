@@ -233,6 +233,18 @@ public class LL {
         }
     }
 
+    // Recursion Reverse
+    private void reverse(Node node){
+        if (node == tail){
+            head = tail;
+            return;
+        }
+        reverse(node.next);
+        tail.next = node;
+        tail = node;
+        tail.next = null;
+    }
+
     public static void main(String[] args) {
 //        LL list = new LL();
 //        list.insertLast(1);
