@@ -245,6 +245,28 @@ public class LL {
         tail.next = null;
     }
 
+    // In-place reversal of linked list
+    // https://leetcode.com/problems/reverse-linked-list/
+    public void reverse(){
+        if (size < 2){
+            return;
+        }
+
+        Node prev = null;
+        Node present = head;
+        Node next = present.next;
+
+        while (present != null){
+            present.next = prev;
+            prev = present;
+            present = next;
+            if (next != null){
+                next = next.next;
+            }
+        }
+        head = prev;
+    }
+
     public static void main(String[] args) {
 //        LL list = new LL();
 //        list.insertLast(1);
