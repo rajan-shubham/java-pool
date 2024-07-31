@@ -137,6 +137,64 @@ public class InterviewQuestions {
         }
         return slow;
     }
+
+    // leetcode inplace reversal of linked list (206)
+    // https://leetcode.com/problems/reverse-linked-list/
+    public ListNode reverseList(ListNode head) {
+        if (head == null) return head;
+
+        ListNode prev = null;
+        ListNode present = head;
+        ListNode next = present.next;
+
+        while (present != null){
+            present.next = prev;
+            prev = present;
+            present = next;
+            if (next != null){
+                next = next.next;
+            }
+        }
+        return prev;
+    }
+
+    // leetcode problem 92 (reverse ll within range)
+    // https://leetcode.com/problems/reverse-linked-list-ii/
+    public ListNode reverseBetween(ListNode head, int left, int right) {
+        if (left == right){
+            return head;
+        }
+
+        // skip the first l-1 nodes
+        ListNode present = head;
+        ListNode prev = null;
+        for (int i = 0; present != null && i < left - 1; i++) {
+            prev = present;
+            present = present.next;
+        }
+
+        ListNode last = prev;
+        ListNode newEnd = present;
+
+        // reverse LL between left and right
+        ListNode next = present.next;
+        for (int i = 0; present != null && i < right - left + 1; i++) {
+            present.next = prev;
+            prev = present;
+            present = next;
+            if (next != null){
+                next = next.next;
+            }
+        }
+        if (last != null) {
+            last.next = prev;
+        }else{
+            head = prev;
+        }
+        newEnd.next = present;
+        return head;
+    }
+
 }
     class ListNode {
         int val;
