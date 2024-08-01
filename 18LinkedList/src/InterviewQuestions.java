@@ -195,6 +195,58 @@ public class InterviewQuestions {
         return head;
     }
 
+    // leetcode 234 --> palindrome linked list or not
+    // https://leetcode.com/problems/palindrome-linked-list/
+    public boolean isPalindrome(ListNode head) {
+        ListNode mid = middleNode(head);
+        ListNode headSecond = reverseList(mid);
+        ListNode reReverseHead = headSecond;
+
+        // compare both the halves
+        while (head != null && headSecond != null) {
+            if (head.val != headSecond.val){
+                break;
+            }
+            head = head.next;
+            headSecond = headSecond.next;
+        }
+
+        reverseList(reReverseHead);
+
+        if (head == null || headSecond == null){
+            return true;
+        }
+        return false;
+    }
+
+    // https://leetcode.com/problems/reorder-list/
+// Google, Facebook
+    public void reorderList(ListNode head) {
+        if (head == null || head.next == null) {
+            return;
+        }
+
+        ListNode mid = middleNode(head);
+
+        ListNode hs = reverseList(mid);
+        ListNode hf = head;
+
+        // rearrange
+        while (hf != null && hs != null) {
+            ListNode temp = hf.next;
+            hf.next = hs;
+            hf = temp;
+
+            temp = hs.next;
+            hs.next = hf;
+            hs = temp;
+        }
+
+        // next of tail to null
+        if (hf != null) {
+            hf.next = null;
+        }
+    }
 }
     class ListNode {
         int val;
