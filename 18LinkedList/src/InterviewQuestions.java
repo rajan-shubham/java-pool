@@ -195,6 +195,46 @@ public class InterviewQuestions {
         return head;
     }
 
+    // leetcode 25 reverse k group of linkedlist // it also reversing the < k end items --> so modify it accordingly
+    // https://leetcode.com/problems/reverse-nodes-in-k-group/
+    public ListNode reverseKGroup(ListNode head, int k) {
+        if (k <= 1 || head == null){
+            return head;
+        }
+
+        // skip the first l-1 nodes
+        ListNode present = head;
+        ListNode prev = null;
+
+        while (true){
+            ListNode last = prev;
+            ListNode newEnd = present;
+
+            // reverse LL between left and right
+            ListNode next = present.next;
+            for (int i = 0; present != null && i < k; i++) {
+                present.next = prev;
+                prev = present;
+                present = next;
+                if (next != null){
+                    next = next.next;
+                }
+            }
+            if (last != null) {
+                last.next = prev;
+            }else{
+                head = prev;
+            }
+            newEnd.next = present;
+            if (present == null){
+                break;
+            }
+
+            prev = newEnd;
+        }
+        return head;
+    }
+
     // leetcode 234 --> palindrome linked list or not
     // https://leetcode.com/problems/palindrome-linked-list/
     public boolean isPalindrome(ListNode head) {
