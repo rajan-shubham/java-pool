@@ -1,6 +1,4 @@
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 public class InBuiltExample {
     public static void main(String[] args) {
@@ -18,15 +16,22 @@ public class InBuiltExample {
 //        System.out.println(stack.pop());
 //        System.out.println(stack.pop()); // gives underflow exception
 
-        Queue<Integer> queue = new LinkedList<>();
-        queue.add(5);
-        queue.add(6);
-        queue.add(3);
-        queue.add(19);
-        queue.add(1);
+//        Queue<Integer> queue = new LinkedList<>();
+//        queue.add(5);
+//        queue.add(6);
+//        queue.add(3);
+//        queue.add(19);
+//        queue.add(1);
+//
+//        System.out.println(queue.peek());
+//        System.out.println(queue.remove());
+//        System.out.println(queue.peek());
 
-        System.out.println(queue.peek());
-        System.out.println(queue.remove());
-        System.out.println(queue.peek());
+        Deque<Integer> deque = new ArrayDeque<>();
+        deque.add(58);
+        deque.addLast(69);
+        deque.addLast(80);
+        deque.removeFirst();
+        System.out.println(deque);
     }
 }
