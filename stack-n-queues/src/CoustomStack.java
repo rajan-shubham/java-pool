@@ -41,11 +41,11 @@ public class CoustomStack {
         return data[top];
     }
 
-    private boolean isFull() {
+    public boolean isFull() {
         return top == data.length - 1; // ptr is at last index
     }
 
-    private boolean isEmpty() {
+    public boolean isEmpty() {
         return top == -1; // top is at -1 index
     }
 }
