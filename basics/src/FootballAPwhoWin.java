@@ -2,9 +2,9 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 public class FootballAPwhoWin {
-        public static void main (String[] args) throws java.lang.Exception
-        {
+        public static void main (String[] args) throws java.lang.Exception {
             // your code goes here
+//            https://www.codechef.com/problems/BID
             Scanner in = new Scanner(System.in);
             int t = in.nextInt();
             while(t --> 0){
