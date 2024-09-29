@@ -1,3 +1,5 @@
+package javaStackQueue;
+
 import java.util.*;
 
 class TwoStacks {
@@ -22,21 +24,35 @@ class TwoStacks {
 
   public static void main(String[] args) {
     Scanner s = new Scanner(System.in);
+    System.out.print("Enter no. of test cases: ");
     int t = s.nextInt();
     for (int i = 0; i < t; i++) {
+      System.out.print("Enter the size of First Stack: ");
       int n = s.nextInt();
+      System.out.print("Enter the size of Second Stack: ");
       int m = s.nextInt();
+      System.out.print("Enter the Max Sum: ");
       int x = s.nextInt();
       int[] a = new int[n];
       int[] b = new int[m];
+      System.out.print("Enter the " + n + " of First Stack: ");
       for (int j = 0; j < n; j++) {
         a[j] = s.nextInt();
       }
+      System.out.print("Enter the " + n + " of Second Stack: ");
       for (int j = 0; j < m; j++) {
         b[j] = s.nextInt();
       }
+
       System.out.println(twoStacks(x, a, b));
     }
   }
-
+  /* input
+  1
+  5
+  4
+  10
+  4 2 4 6 1
+  2 1 8 5
+   */
 }

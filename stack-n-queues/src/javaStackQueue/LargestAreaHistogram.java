@@ -1,3 +1,5 @@
+package javaStackQueue;
+
 import java.util.Stack;
 
 class  LargestAreaHistogram{
