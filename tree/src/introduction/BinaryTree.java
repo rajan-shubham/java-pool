@@ -16,4 +16,9 @@ public class BinaryTree {
     }
 
     private Node root;
+
+    public static void main(String[] args) {
+        Node n = new Node(5);
+        System.out.println(n.value);
+    }
 }
