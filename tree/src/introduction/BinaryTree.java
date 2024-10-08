@@ -17,6 +17,45 @@ public class BinaryTree {
 
     private Node root;
 
+    // insert elements
+  public void populate(Scanner scanner) {
+    System.out.println("Enter the root Node: ");
+    int value = scanner.nextInt();
+    root = new Node(value);
+    populate(scanner, root);
+  }
+
+  private void populate(Scanner scanner, Node node) {
+    System.out.println("Do you want to enter left of " + node.value);
+    boolean left = scanner.nextBoolean();
+    if (left) {
+      System.out.println("Enter the value of the left of " + node.value);
+      int value = scanner.nextInt();
+      node.left = new Node(value);
+      populate(scanner, node.left);
+    }
+
+    // private void populate(Scanner scanner, Node node){
+    // System.out.println("Enter the left Node of " + node.value + " (-1 if none): ");
+    // int leftValue = scanner.nextInt();
+    // if(leftValue != -1){
+    //     Node left = new Node(leftValue);
+    //     node.left = left;
+    //     populate(scanner, left);
+    //     }
+    // }
+
+    System.out.println("Do you want to enter right of " + node.value);
+    boolean right = scanner.nextBoolean();
+    if (right) {
+      System.out.println("Enter the value of the right of " + node.value);
+      int value = scanner.nextInt();
+      node.right = new Node(value);
+      populate(scanner, node.right);
+    }
+
+  }
+
     public static void main(String[] args) {
         Node n = new Node(5);
         System.out.println(n.value);
