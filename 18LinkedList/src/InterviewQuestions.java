@@ -367,6 +367,21 @@ public class InterviewQuestions {
 
         return head;
     }
+
+    //https://www.geeksforgeeks.org/problems/delete-alternate-nodes/1
+    // delete alternate node of a ll
+    public void deleteAlt(Node head) {
+        Node slow=head;
+        Node fast=head.next;
+        
+        while(fast!=null && fast.next!=null){
+            slow.next=fast.next;
+            slow=slow.next;
+            fast=slow.next;
+            
+        }
+        slow.next=null;
+    }
 }
     class ListNode {
         int val;
