@@ -1,5 +1,7 @@
 package introduction;
 
+import java.util.Scanner;
+
 public class BinaryTree {
     public BinaryTree() {
 
@@ -56,60 +58,83 @@ public class BinaryTree {
 
   }
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
         Node n = new Node(5);
         System.out.println(n.value);
-    }
-}
-
- public void display() {
-    display(this.root, "");
   }
 
-  private void display(Node node, String indent) {
-    if (node == null) {
-      return;
-    }
-    System.out.println(indent + node.value);
-    display(node.left, indent + "\t");
-    display(node.right, indent + "\t");
-  }
-
-public void prettyDisplay() {
-    prettyDisplay(root, 0);
-  }
-
-  private void prettyDisplay(Node node, int level) {
-    if (node == null) {
-      return;
+    public void display() {
+        display(this.root, "");
     }
 
-    prettyDisplay(node.right, level + 1);
+    private void display(Node node, String indent) {
+        if (node == null) {
+            return;
+        }
+        System.out.println(indent + node.value);
+        display(node.left, indent + "\t");
+        display(node.right, indent + "\t");
+    }
 
-    if (level != 0) {
-      for (int i = 0; i < level - 1; i++) {
-        System.out.print("|\t\t");
+    public void prettyDisplay() {
+        prettyDisplay(root, 0);
+    }
+
+    private void prettyDisplay(Node node, int level) {
+        if (node == null) {
+            return;
+        }
+
+        prettyDisplay(node.right, level + 1);
+
+        if (level != 0) {
+            for (int i = 0; i < level - 1; i++) {
+                System.out.print("|\t\t");
+            }
+            System.out.println("|------->" + node.value);
+        } else {
+            System.out.println(node.value);
+        }
+        prettyDisplay(node.left, level + 1);
+    }
+
+    public void preOrder() {
+        preOrder(root);
+    }
+
+    private void preOrder(Node node) {
+        if (node == null) {
+            return;
+        }
+        System.out.print(node.value + " ");
+        preOrder(node.left);
+        preOrder(node.right);
+    }
+
+    public void inOrder() {
+        preOrder(root);
+    }
+
+    private void inOrder(Node node){
+      if(node == null){
+          return;
       }
-      System.out.println("|------->" + node.value);
-    } else {
-      System.out.println(node.value);
+      preOrder(node.left);
+      System.out.println(node.value + " ");
+      preOrder(node.right);
     }
-    prettyDisplay(node.left, level + 1);
-  }
 
-public void preOrder() {
-    preOrder(root);
-  }
-
-  private void preOrder(Node node) {
-    if (node == null) {
-      return;
+    public void postOrder(){
+      preOrder(root);
     }
-    System.out.print(node.value + " ");
-    preOrder(node.left);
-    preOrder(node.right);
-  }
 
-  public void inOrder() {
-    preOrder(root);
-  }
+    private void postOrder(Node node){
+      if (node == null){
+          return;
+      }
+      preOrder(node.left);
+      preOrder(node.right);
+      System.out.println(node.value + " ");
+    }
+
+}
