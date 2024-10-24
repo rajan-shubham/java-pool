@@ -53,6 +53,40 @@ public class BST {
         return node;
     }
 
+    public void populate(int[] nums) {
+        for (int i = 0; i < nums.length; i++) {
+            this.insert(nums[i]);
+        }
+    }
+
+    public void display() {
+        display(this.root, "Root Node: ");
+    }
+
+    private void display(Node node, String details) {
+        if (node == null) {
+            return;
+        }
+        System.out.println(details + node.value);
+        display(node.left, "Left child of " + node.value + " : ");
+        display(node.right, "Right child of " + node.value + " : ");
+    }
+
+    // for insertion of a sorted array
+    public void populateSorted(int[] nums){
+        populateSorted(nums, 0, nums.length);
+    }
+    private void populateSorted(int[] nums, int start, int end){
+        if (start >= end){
+            return;
+        }
+        int mid = (start + end)/2;
+
+        this.insert(nums[mid]);
+        populateSorted(nums, start, mid);
+        populateSorted(nums, mid+1, end);
+    }
+
     public boolean balenced(){
         return balenced(root);
     }
