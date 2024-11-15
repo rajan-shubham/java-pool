@@ -101,4 +101,68 @@ public class TreeNode {
     }
     return result;
   }
+
+  // https://leetcode.com/problems/average-of-levels-in-binary-tree/
+    // 2ms runtime
+    public List<Double> averageOfLevels(TreeNode root) {
+        List<Double> result = new ArrayList<>();
+
+        if(root == null){
+            return result;
+        }
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+
+        while(!queue.isEmpty()){
+            int levelSize = queue.size();
+            double levelSum = 0;
+            for(int i = 0; i<levelSize; i++){
+                TreeNode currentNode = queue.poll();
+                levelSum += currentNode.val;
+                if(currentNode.left != null){
+                    queue.offer(currentNode.left);
+                }
+                if(currentNode.right != null){
+                    queue.offer(currentNode.right);
+                }
+            }
+            result.add(levelSum/levelSize);
+        }
+
+        return result;
+    }
+
+    // 1ms runtime
+    // Method 2 : DFS with Recursion & arrayList countOfLevels
+    /* class Solution {
+
+        private final List<Double> averageOfLevels = new ArrayList<>();
+        private final List<Integer> countsOfLevels = new ArrayList<>();
+
+        public List<Double> averageOfLevels(TreeNode root) {
+            averageOfLevels(root, 0);
+            for (int i = 0; i < averageOfLevels.size(); i++) {
+                averageOfLevels.set(i, averageOfLevels.get(i) / countsOfLevels.get(i));
+            }
+            return averageOfLevels;
+        }
+
+        private void averageOfLevels(TreeNode node, int level) {
+            if (node == null) return;
+            if (level < averageOfLevels.size()) {
+                averageOfLevels.set(level, averageOfLevels.get(level) + node.val);
+                countsOfLevels.set(level, countsOfLevels.get(level) + 1);
+            } else {
+                averageOfLevels.add((double) node.val);
+                countsOfLevels.add(1);
+            }
+
+            level++;
+            averageOfLevels(node.left, level);
+            averageOfLevels(node.right, level);
+        }
+    } */
+
+
 }
