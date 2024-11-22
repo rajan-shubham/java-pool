@@ -63,4 +63,54 @@ public class DFS {
         return root;
     }
      */
+
+//    https://leetcode.com/problems/maximum-depth-of-binary-tree/
+    public int maxDepth(TreeNode root) {
+        if (root == null) return 0;
+
+        int leftDepth = maxDepth(root.left);
+        int rightDepth = maxDepth(root.right);
+
+        return Math.max(leftDepth, rightDepth) + 1;
+    }
+
+    //    https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/description/
+    private TreeNode root;
+    public TreeNode sortedArrayToBST(int[] nums) {
+        populateSorted(nums);
+        return root;
+    }
+    public void insert(int value){
+        root = insert(value, root);
+    }
+    private TreeNode insert(int value, TreeNode node){
+        if(node == null){
+            node = new TreeNode(value);
+            return node;
+        }
+
+        if(value < node.val){
+            node.left = insert(value, node.left);
+        }
+
+        if (value > node.val){
+            node.right = insert(value, node.right);
+        }
+
+        return node;
+    }
+    public void populateSorted(int[] nums){
+        populateSorted(nums, 0, nums.length);
+    }
+    private void populateSorted(int[] nums, int start, int end){
+        if (start >= end){
+            return;
+        }
+        int mid = (start + end)/2;
+
+        this.insert(nums[mid]);
+        populateSorted(nums, start, mid);
+        populateSorted(nums, mid+1, end);
+    }
+
 }
