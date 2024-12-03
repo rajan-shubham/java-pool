@@ -1,5 +1,7 @@
 package questions;
 
+import java.util.*;
+
 public class DFS {
     //      Definition for a binary tree node.
     public class TreeNode {
@@ -158,6 +160,25 @@ public class DFS {
         if (left != null && right != null) return root;
 
         return left == null ? right : left;
+    }
+
+
+//    https://leetcode.com/problems/kth-smallest-element-in-a-bst/
+//    by shubham 1ms runtime O(n) space and time
+    ArrayList<Integer> list = new ArrayList<>();
+
+    public int kthSmallest(TreeNode root, int k) {
+
+        filler(root);
+
+        return list.get(k-1);
+    }
+
+    public void filler(TreeNode root){
+        if (root == null) return ;
+        filler(root.left);
+        list.add(root.val);
+        filler(root.right);
     }
 
 }
