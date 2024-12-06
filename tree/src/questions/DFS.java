@@ -167,7 +167,7 @@ public class DFS {
 //    by shubham 1ms runtime O(n) space and time
     ArrayList<Integer> list = new ArrayList<>();
 
-    public int kthSmallest(TreeNode root, int k) {
+    public int kthSmallest1ms(TreeNode root, int k) {
 
         filler(root);
 
@@ -180,5 +180,25 @@ public class DFS {
         list.add(root.val);
         filler(root.right);
     }
+    // 0ms runtime
+    int count = 0;
+    public int kthSmallest0ms(TreeNode root, int k) {
+        if(root == null){
+            return -1;
+        }
+
+        int left = kthSmallest0ms(root.left, k);
+        if(left != -1){
+            return left;
+        }
+
+        count ++ ;
+        if(count == k){
+            return root.val;
+        }
+
+        return kthSmallest0ms(root.right, k);
+    }
+
 
 }
