@@ -47,4 +47,37 @@ public class PathSum {
     return hasPathSum(root.left, sum-root.val) || hasPathSum(root.right, sum-root.val);
     }
      */
+
+//    https://leetcode.com/problems/sum-root-to-leaf-numbers/description/
+    public int sumNumbers(TreeNode root){
+        return dfs(root, 0);
+    }
+    public int dfs(TreeNode node, int sum){
+        if (node == null) return 0;
+        sum = sum * 10 + node.val;
+        if (node.left == null && node.right == null) return sum;
+        return dfs(node.left, sum) + dfs(node.right, sum);
+    }
+
+//    https://leetcode.com/problems/binary-tree-maximum-path-sum/
+    int ans = Integer.MIN_VALUE;
+    public int maxPathSum(TreeNode root){
+        helper(root);
+        return ans;
+    }
+    public int helper(TreeNode node){
+        if (node == null) return 0;
+
+        int left = helper(node.left);
+        int right = helper(node.right);
+
+        left = Math.max(0, left);
+        right = Math.max(0, right);
+
+        int pathSum = left + right + node.val;
+
+        ans = Math.max(ans, pathSum);
+
+        return Math.max(left, right) + node.val;
+    }
 }
