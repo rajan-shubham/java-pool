@@ -80,4 +80,19 @@ public class PathSum {
 
         return Math.max(left, right) + node.val;
     }
+
+    public boolean findPath(TreeNode node, int[] arr){
+        if (node == null) return arr.length == 0;
+        return findPathHelper(node, arr, 0);
+    }
+    private boolean findPathHelper(TreeNode node, int[] arr, int index){
+        if (node == null) return false;
+
+        if (index >= arr.length || node.val != arr[index]) return false;
+
+        if (node.left == null && node.right == null && index == arr.length -1) return true;
+
+        return findPathHelper(node.left, arr, index+1) || findPathHelper(node.right, arr, index+1);
+    }
+
 }
