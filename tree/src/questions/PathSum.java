@@ -1,5 +1,10 @@
 package questions;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.ListIterator;
+
 public class PathSum {
     public class TreeNode {
         int val;
@@ -95,4 +100,54 @@ public class PathSum {
         return findPathHelper(node.left, arr, index+1) || findPathHelper(node.right, arr, index+1);
     }
 
+
+    // counting paths equal to sum in bt
+    int countPath(TreeNode node, int sum){
+        List<Integer> path = new LinkedList<>();
+        return countPathHelper(node, sum, path);
+    }
+    int countPathHelper(TreeNode node, int sum, List<Integer> path){
+        if (node == null) return 0;
+
+        path.add(node.val);
+        int count = 0;
+        int s = 0;
+        // how many paths I can make
+        ListIterator<Integer> itr = path.listIterator(path.size());
+        while (itr.hasPrevious()){
+            s += itr.previous();
+            if (s == sum) count++;
+        }
+        count += countPathHelper(node.left, s, path) + countPathHelper(node.right, sum, path);
+
+        // backtrack
+        path.remove(path.size() - 1);
+        return count;
+    }
+
+
+    // taking the list of all paths that is equal to a given sum
+    List<List<Integer>> findPaths(TreeNode node, int sum) {
+        List<List<Integer>> paths = new ArrayList<>();
+        List<Integer> path = new ArrayList<>();
+        findPathsHelper(node, sum, path, paths);
+        return paths;
+    }
+    void findPathsHelper(TreeNode node, int sum, List<Integer> path, List<List<Integer>> paths) {
+        if(node == null) {
+            return;
+        }
+
+        path.add(node.val);
+
+        if (node.val == sum && node.left == null && node.right == null) {
+            paths.add(new ArrayList<>(path));
+        } else {
+            findPathsHelper(node.left, sum-node.val, path, paths);
+            findPathsHelper(node.right, sum-node.val, path, paths);
+        }
+
+        // backtrack
+        path.removeLast();
+    }
 }
