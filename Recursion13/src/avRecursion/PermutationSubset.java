@@ -1,5 +1,7 @@
 package avRecursion;
 
+import java.util.*;
+
 public class PermutationSubset {
     public static void main(String[] args) {
         String ip = "abc";
@@ -7,6 +9,10 @@ public class PermutationSubset {
         spaceSubset(ip, op);
         System.out.println();
         caseSubset(ip, op);
+        System.out.println();
+        ArrayList<String> digitCase = new ArrayList<>();
+        digitCaseSubset("a1B2", "", digitCase);
+        System.out.println(digitCase);
     }
 
     public static void spaceSubset(String ip, String op){
@@ -30,5 +36,18 @@ public class PermutationSubset {
         }
         caseSubset(ip.substring(1), op+ip.charAt(0));
         caseSubset(ip.substring(1),op+(char)(ip.charAt(0)-32));
+    }
+
+    public static void digitCaseSubset(String ip, String op, ArrayList<String> digitCase){
+        if (ip.isEmpty()){
+            digitCase.add(op);
+            return;
+        }
+        if(Character.isLetter(ip.charAt(0))){
+            digitCaseSubset(ip.substring(1), op + ip.toLowerCase().charAt(0), digitCase);
+            digitCaseSubset(ip.substring(1), op + ip.toUpperCase().charAt(0), digitCase);
+        }else{
+            digitCaseSubset(ip.substring(1), op + ip.charAt(0), digitCase);
+        }
     }
 }
