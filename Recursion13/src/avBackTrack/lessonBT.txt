@@ -1,0 +1,4 @@
+Recursion => observation + choices + Decision
+Backtracking => controlled recursion + ip pass by reference
+BT => controlled Recursion + choices large OR variable
+BT => find all combinations
