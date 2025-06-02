@@ -29,11 +29,21 @@ public class LearnArrayList {
         list.add(50);
         list.add(60);
 
-        list.reversed();
+        list = list.reversed();
+
+        for(int i = 0; i<list.size(); i++){
+            System.out.print(list.get(i) + " ");
+        }
+
+        for(Integer element : list){
+            System.out.print(element + " ");
+        }
+
 
         Iterator<Integer> it = list.iterator();
+        System.out.println("Iterator");
         while (it.hasNext()){
-            System.out.println("iterator " + it.next());
+            System.out.print(it.next() + " ");
         }
 
         /*list.set(0, 2999);
