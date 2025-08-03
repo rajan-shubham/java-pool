@@ -1,3 +1,4 @@
+import java.util.*;
 class MakeArrElemUnique {
 
 // https://www.geeksforgeeks.org/problems/make-array-elements-unique--170645/1

@@ -1,3 +1,5 @@
+import java.util.*;
+
 class MergeTwoSortedArr {
   // https://www.geeksforgeeks.org/problems/union-of-two-sorted-arrays-with-distinct-elements/1
     // Function to return a list containing the union of the two arrays.
