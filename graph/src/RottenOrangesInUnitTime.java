@@ -3,11 +3,11 @@ import java.util.Queue;
 //https://www.geeksforgeeks.org/problems/rotten-oranges2536/1
 //https://leetcode.com/problems/rotting-oranges/
 //https://www.youtube.com/watch?v=yf3oUhkvqA0&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=10
-class Pair{
+class TimeTuple {
     int row;
     int col;
     int time;
-    Pair(int row, int col, int time){
+    TimeTuple(int row, int col, int time){
         this.row = row; this.col = col; this.time = time;
     }
 }
@@ -18,14 +18,14 @@ public class RottenOrangesInUnitTime {
         int n = grid.length;
         int m = grid[0].length;
         // n * m
-        Queue<Pair> q = new LinkedList<>();
+        Queue<TimeTuple> q = new LinkedList<>();
         // n*m
         int[][] vis = new int[n][m];
         int cntFresh = 0;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 if (grid[i][j] == 2){
-                    q.add(new Pair(i, j, 0));
+                    q.add(new TimeTuple(i, j, 0));
                     vis[i][j] = 2;
                 } else {
                     vis[i][j] = 0;
@@ -48,7 +48,7 @@ public class RottenOrangesInUnitTime {
                 int nrow = r + drow[i];
                 int ncol = c + dcol[i];
                 if (nrow>=0 && nrow<n && ncol>=0 && ncol<m && vis[nrow][ncol]==0 && grid[nrow][ncol]==1){
-                    q.add(new Pair(nrow, ncol, t+1));
+                    q.add(new TimeTuple(nrow, ncol, t+1));
                     vis[nrow][ncol] = 2;
                     count++;
                 }
