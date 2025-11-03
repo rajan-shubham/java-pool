@@ -32,6 +32,12 @@ public class TabulationBU01KS {
                 }
             }
         }
+        for(int[] dp: t){
+            for (int i = 0; i < w + 1; i++) {
+                System.out.print(dp[i] + " ");
+            }
+            System.out.println();
+        }
         return t[n][w];
     }
 }
