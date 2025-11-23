@@ -1,5 +1,7 @@
 package infosysPractice65;
 
+import java.util.Scanner;
+
 public class RemoveDigit {
 
     /**
@@ -63,5 +65,22 @@ public class RemoveDigit {
         char digit3 = '1';
         System.out.println("Input: number = \"" + number3 + "\", digit = '" + digit3 + "'");
         System.out.println("Output: " + solver.removeDigit(number3, digit3)); // Expected: "51"
+
+        // Solving above question using input from user
+        Scanner in = new Scanner(System.in);
+        String num = in.next();
+        char digit = in.next().charAt(0);
+        int max = Integer.MIN_VALUE;
+
+        for(int i = 0; i<num.length(); i++){
+            if(num.charAt(i) == digit){
+                String temp = num.substring(0, i) + num.substring(i+1);
+                int val = Integer.parseInt(temp);
+                if(val > max){
+                    max = val;
+                }
+            }
+        }
+        System.out.println(String.valueOf(max));
     }
 }
